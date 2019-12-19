@@ -23,7 +23,7 @@ namespace AzureSamples.AzureSQL.Controllers
             _config = config;
         }
 
-        protected async Task<JsonDocument> Query(string verb, Type entity)
+        protected async Task<JsonElement> Query(string verb, Type entity, int? id = null, JsonElement payload = default(JsonElement))
         {
             JsonDocument result = null;
 
@@ -37,14 +37,31 @@ namespace AzureSamples.AzureSQL.Controllers
             _logger.LogDebug($"Executing {procedure}");
 
             using(var conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"))) {
-                var qr = await conn.ExecuteScalarAsync<string>(procedure, commandType: CommandType.StoredProcedure);
-                result = JsonDocument.Parse(qr);
+                DynamicParameters parameters = new DynamicParameters();
+
+                if (payload.ValueKind != default(JsonValueKind))
+                {
+                    var json = JsonSerializer.Serialize(payload);
+                    parameters.Add("Json", json);
+                }
+
+                if (id.HasValue)
+                    parameters.Add("Id", id.Value);
+
+                var qr = await conn.ExecuteScalarAsync<string>(
+                    sql: procedure, 
+                    param: parameters, 
+                    commandType: CommandType.StoredProcedure
+                );
+                
+                if (qr != null)
+                    result = JsonDocument.Parse(qr);
             };
 
             if (result == null) 
                 result = JsonDocument.Parse("[]");
                         
-            return result;
+            return result.RootElement;
         }
     }
 }

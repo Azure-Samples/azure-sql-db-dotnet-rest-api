@@ -4,31 +4,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Data.SqlClient;
-using Dapper;
+using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace AzureSamples.AzureSQL.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CustomerController : ControllerBase
+    public class CustomerController : ControllerQuery
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        public CustomerController(IConfiguration config, ILogger<CustomersController> logger):
+            base(config, logger) {}
 
-        private readonly ILogger<CustomerController> _logger;
-
-        public CustomerController(ILogger<CustomerController> logger)
+        [HttpGet("{customerId}")]
+        public async Task<JsonElement> Get(int customerId)
         {
-            _logger = logger;
+            return await this.Query("get", this.GetType(), customerId);
         }
 
-        [HttpGet]
-        public IEnumerable<dynamic> Get()
+        [HttpPut]
+        public async Task<JsonElement> Put([FromBody]JsonElement payload)
         {
-           return null;
+            return await this.Query("put", this.GetType(), payload: payload);
+        }
+
+        [HttpPatch("{customerId}")]
+        public async Task<JsonElement> Patch([FromBody]JsonElement payload, int customerId)
+        {
+            return await this.Query("patch", this.GetType(), customerId, payload);
+        }
+
+        [HttpDelete("{customerId}")]
+        public async Task<JsonElement> Delete(int customerId)
+        {
+            return await this.Query("delete", this.GetType(), customerId);
         }
     }
 }

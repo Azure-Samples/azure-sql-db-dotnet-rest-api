@@ -8,7 +8,7 @@ appName="azure-sql-db-dotnet-rest-api"
 location="WestUS2" 
 
 # Change this if you are using your own github repository
-gitSource="https://github.com/yorek/azure-sql-db-dotnet-rest-api.git"
+gitSource="https://github.com/Azure-Samples/azure-sql-db-dotnet-rest-api.git"
 
 az group create \
     -n $resourceGroup \
@@ -31,5 +31,5 @@ az webapp create \
 az webapp config connection-string set \
     -g $resourceGroup \
     -n $appName \
-    --settings DefaultConnection=$DefaultConnection \
+    --settings DefaultConnection=$ConnectionStrings__DefaultConnection \
     --connection-string-type=SQLAzure

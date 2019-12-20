@@ -30,6 +30,6 @@ az webapp create \
 
 az webapp config connection-string set \
     -g $resourceGroup \
-    -n $appName \    
+    -n $appName \
     --settings DefaultConnection=$DefaultConnection \
     --connection-string-type=SQLAzure

@@ -3,17 +3,18 @@ page_type: sample
 languages:
 - tsql
 - sql
+- aspx-csharp
 products:
 - azure
 - donet
 - aspnet
-= dotnet-core
+- dotnet-core
 - aspnet-core
 - azure-api-apps
 - vs-code
 - azure-sql-database
 description: "Creating a modern REST API with .NET Core and Azure SQL, using Dapper and Visual Studio Code"
-urlFragment: "azure-sql-db-python-rest-api"
+urlFragment: "azure-sql-db-dotnet-rest-api"
 ---
 
 # Creating a REST API with .NET Core and Azure SQL

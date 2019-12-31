@@ -27,9 +27,19 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-Thanks to native JSON support, creating a REST API with Azure SQL and .NET Core is really a matter of a few lines of code. Take a look at `app.py` to easy it is!
+Thanks to native JSON support, creating a REST API with Azure SQL and .NET Core is really a matter of a few lines of code:
 
-Wondering what's the magic behind? The sample uses the well known [Flask](https://flask.palletsprojects.com/en/1.1.x/) micro-framework and the [flask-restful](https://flask-restful.readthedocs.io/en/latest/) package to easily implement REST APIs. Beside that the [native JSON support that Azure SQL provides](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-json-features) does all the heavy lifting so sending data back and forth to the database is as easy as sending a JSON message.
+```csharp
+    var qr = await conn.ExecuteScalarAsync<string>(
+        sql: procedure,
+        param: parameters,
+        commandType: CommandType.StoredProcedure
+    );
+    
+    var result = JsonDocument.Parse(qr);
+```
+
+This is possible thanks to [Azure SQL native support to JSON](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-json-features) format and the MicroORM [Dapper](https://medium.com/dapper-net/get-started-with-dapper-net-591592c335aa) that removes all the plumbing code and returns not tables and columns but a fully deserialized object. Object that can be a POCO object or just JSON for maximum flexibilty.
 
 ## Install Sample Database
 
@@ -65,7 +75,7 @@ $Env:ConnectionStrings__DefaultConnection="<your-connection-string>"
 
 Your connection string is something like:
 
-```
+```text
 DRIVER={ODBC Driver 17 for SQL Server};SERVER=<your-server-name>.database.windows.net;DATABASE=<your-database-name>;UID=DotNetWebApp;PWD=a987REALLY#$%TRONGpa44w0rd
 ```
 
@@ -116,8 +126,7 @@ Check out more samples to test all implemented verbs here:
 
 Now that your REST API solution is ready, it's time to deploy it on Azure so that anyone can take advantage of it. A detailed article on how you can that that is here:
 
-- [Deploying Python web apps to Azure App Services](https://medium.com/@GeekTrainer/deploying-python-web-apps-to-azure-app-services-413cc16d4d68)
-- [Quickstart: Create a Python app in Azure App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-python?tabs=bash)
+- [Create an ASP.NET Core app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore)
 
 The only thing you have do in addition to what explained in the above articles is to add the connection string to the Azure Web App configuration. Using AZ CLI, for example:
 

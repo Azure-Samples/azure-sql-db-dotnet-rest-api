@@ -141,7 +141,9 @@ az webapp config connection-string set \
     --connection-string-type=SQLAzure
 ```
 
-Just make sure you correctly set `$appName` and `$resourceGroup` to match your environment and also that the variable `$ConnectionStrings__DefaultConnection` as also been set, as mentioned in section "Run sample locally". An example of a full script that deploy the REST API is available here: `azure-deploy.sh`.
+Just make sure you correctly set `$appName` and `$resourceGroup` to match your environment and also that the variable `$ConnectionStrings__DefaultConnection` as also been set, as mentioned in section "Run sample locally". 
+
+An example of a full script that deploy the REST API is available here: `azure-deploy.sh`.
 
 ## Learn more
 

@@ -175,9 +175,8 @@ GO
 CREATE OR ALTER PROCEDURE web.get_customers
 AS
 SET NOCOUNT ON;
--- Cast is needed to corretly inform pyodbc of output type is NVARCHAR(MAX)
--- Needed if generated json is bigger then 4000 bytes and thus pyodbc trucates it
--- https://stackoverflow.com/questions/49469301/pyodbc-truncates-the-response-of-a-sql-server-for-json-query
+-- Cast is needed to corretly inform the drived of output type is NVARCHAR(MAX)
+-- to make sure it won't be truncated
 SELECT CAST((
 	SELECT 
 		[CustomerID], 
@@ -186,4 +185,3 @@ SELECT CAST((
 		[Sales].[Customers] 
 	FOR JSON PATH) AS NVARCHAR(MAX)) AS JsonResult
 GO
-

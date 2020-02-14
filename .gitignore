@@ -353,3 +353,4 @@ MigrationBackup/
 env.ps1
 env.sh
 appsettings.Development.json
+.env

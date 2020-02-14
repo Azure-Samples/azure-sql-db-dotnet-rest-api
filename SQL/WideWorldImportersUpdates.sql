@@ -23,8 +23,7 @@ GO
 	Return details on a specific customer
 */
 CREATE OR ALTER PROCEDURE web.get_customer
-@Id INT,
-@Json NVARCHAR(MAX)
+@Id INT
 AS
 SET NOCOUNT ON;
 SELECT 

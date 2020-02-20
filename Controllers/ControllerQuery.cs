@@ -14,10 +14,10 @@ namespace AzureSamples.AzureSQL.Controllers
 {
     public class ControllerQuery : ControllerBase
     {
-        private readonly ILogger<CustomersController> _logger;
+        private readonly ILogger<ControllerQuery> _logger;
         private readonly IConfiguration _config;
 
-        public ControllerQuery(IConfiguration config, ILogger<CustomersController> logger)
+        public ControllerQuery(IConfiguration config, ILogger<ControllerQuery> logger)
         {
             _logger = logger;
             _config = config;

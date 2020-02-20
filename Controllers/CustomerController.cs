@@ -13,7 +13,7 @@ namespace AzureSamples.AzureSQL.Controllers
     [Route("[controller]")]
     public class CustomerController : ControllerQuery
     {
-        public CustomerController(IConfiguration config, ILogger<CustomersController> logger):
+        public CustomerController(IConfiguration config, ILogger<CustomerController> logger):
             base(config, logger) {}
 
         [HttpGet("{customerId}")]

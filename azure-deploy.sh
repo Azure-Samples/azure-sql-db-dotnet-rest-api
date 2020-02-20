@@ -12,7 +12,7 @@ gitSource="https://github.com/Azure-Samples/azure-sql-db-dotnet-rest-api.git"
 
 # Make sure connection string variable is set
 if [[ -z "${ConnectionStrings__DefaultConnection:-}" ]]; then
-	echo "Plase export Azure SQL connection string:";
+	echo "Please export Azure SQL connection string:";
     echo "export ConnectionStrings__DefaultConnection=\"your-connection-string-here\"";
 	exit 1;
 fi

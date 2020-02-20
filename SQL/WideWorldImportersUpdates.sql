@@ -175,7 +175,8 @@ GO
 CREATE OR ALTER PROCEDURE web.get_customers
 AS
 SET NOCOUNT ON;
--- Cast is needed to corretly inform the drived of output type is NVARCHAR(MAX)
+-- Cast is needed to corretly inform the driver  
+-- that output type is NVARCHAR(MAX)
 -- to make sure it won't be truncated
 SELECT CAST((
 	SELECT 

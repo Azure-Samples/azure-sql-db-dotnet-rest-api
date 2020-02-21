@@ -10,7 +10,7 @@ GO
 	Create user to be used in the sample API solution
 */
 IF USER_ID('DotNetWebApp') IS NULL BEGIN	
-	CREATE USER [DotNetWebApp] WITH PASSWORD = 'a987REALLY#$%TRONGpa44w0rd';	
+	CREATE USER [DotNetWebApp] WITH PASSWORD = 'a987REALLY#$%TRONGpa44w0rd!';	
 END
 
 /*

@@ -76,7 +76,7 @@ $Env:ConnectionStrings__DefaultConnection="<your-connection-string>"
 Your connection string is something like:
 
 ```text
-SERVER=<your-server-name>.database.windows.net;DATABASE=<your-database-name>;UID=DotNetWebApp;PWD=a987REALLY#$%TRONGpa44w0rd
+SERVER=<your-server-name>.database.windows.net;DATABASE=<your-database-name>;UID=DotNetWebApp;PWD=a987REALLY#$%TRONGpa44w0rd!
 ```
 
 Just replace `<your-server-name>` and `<your-database-name>` with the correct values for your environment.

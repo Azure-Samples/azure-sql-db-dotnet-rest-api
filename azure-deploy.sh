@@ -25,16 +25,15 @@ az group create \
 echo "Creating Application Service Plan...";
 az appservice plan create \
     -g $resourceGroup \
-    -n "linux-plan" \
-    --sku B1 \
-    --is-linux
+    -n "windows-plan" \
+    --sku B1     
 
 echo "Creating Web Application...";
 az webapp create \
     -g $resourceGroup \
     -n $appName \
-    --plan "linux-plan" \
-    --runtime "DOTNETCORE|3.0" \
+    --plan "windows-plan" \
+    --runtime "DOTNETCORE|3.1" \
     --deployment-source-url $gitSource \
     --deployment-source-branch master
 

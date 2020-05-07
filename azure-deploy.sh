@@ -33,7 +33,6 @@ az webapp create \
     -g $resourceGroup \
     -n $appName \
     --plan "windows-plan" \
-    --runtime "DOTNETCORE|3.1" \
     --deployment-source-url $gitSource \
     --deployment-source-branch master
 

@@ -19,6 +19,8 @@ urlFragment: "azure-sql-db-dotnet-rest-api"
 
 # Creating a REST API with .NET Core and Azure SQL
 
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 <!-- 
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
 

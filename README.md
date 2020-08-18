@@ -6,7 +6,7 @@ languages:
 - aspx-csharp
 products:
 - azure
-- donet
+- dotnet
 - aspnet
 - dotnet-core
 - aspnet-core

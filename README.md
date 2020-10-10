@@ -4,6 +4,7 @@ languages:
 - tsql
 - sql
 - aspx-csharp
+- json
 products:
 - azure
 - dotnet

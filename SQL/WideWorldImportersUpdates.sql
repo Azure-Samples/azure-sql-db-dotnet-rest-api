@@ -105,7 +105,7 @@ SET NOCOUNT ON;
 DECLARE @CustomerId INT = NEXT VALUE FOR Sequences.CustomerID;
 WITH [source] AS 
 (
-	SELECT * FROM OPENJSON(@Json) WITH (		
+	SELECT @Id AS CustomerID, * FROM OPENJSON(@Json) WITH (		
 		[CustomerName] NVARCHAR(100), 
 		[PhoneNumber] NVARCHAR(20), 
 		[FaxNumber] NVARCHAR(20), 

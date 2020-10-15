@@ -4,9 +4,10 @@ languages:
 - tsql
 - sql
 - aspx-csharp
+- json
 products:
 - azure
-- donet
+- dotnet
 - aspnet
 - dotnet-core
 - aspnet-core
@@ -18,6 +19,8 @@ urlFragment: "azure-sql-db-dotnet-rest-api"
 ---
 
 # Creating a REST API with .NET Core and Azure SQL
+
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 <!-- 
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
@@ -49,7 +52,7 @@ In order to run this sample, the WideWorldImporters database is needed. Install 
 
 ## Add Database Objects
 
-Once the sample database has been installed, you need to add some stored procedure that will called from Python. The SQL code is available here:
+Once the sample database has been installed, you need to add some stored procedures that will be called from .NET. The SQL code is available here:
 
 `./SQL/WideWorldImportersUpdates.sql`
 
@@ -57,7 +60,7 @@ If you need any help in executing the SQL script, you can find a Quickstart here
 
 ## Run sample locally
 
-Make sure you have [.NET Core 3.0](https://dotnet.microsoft.com/download) SDK installed on your machine. Clone this repo in a directory on our computer and then configure the connection string in `appsettings.json`.
+Make sure you have [.NET Core 3.0](https://dotnet.microsoft.com/download) SDK installed on your machine. Clone this repo in a directory on your computer and then configure the connection string in `appsettings.json`.
 
 If you don't want to save the connection string in the `appsettings.json` file for security reasons, you can just set it using an environment variable:
 
@@ -67,7 +70,7 @@ Linux:
 export ConnectionStrings__DefaultConnection="<your-connection-string>"
 ```
 
-Windows:
+Windows (Powershell):
 
 ```powershell
 $Env:ConnectionStrings__DefaultConnection="<your-connection-string>"
@@ -128,7 +131,7 @@ Now that your REST API solution is ready, it's time to deploy it on Azure so tha
 
 - [Create an ASP.NET Core app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore)
 
-The only thing you have do in addition to what explained in the above articles is to add the connection string to the Azure Web App configuration. Using AZ CLI, for example:
+The only thing you have do in addition to what explained in the above article is to add the connection string to the Azure Web App configuration. Using AZ CLI, for example:
 
 ```bash
 appName="azure-sql-db-dotnet-rest-api"
@@ -143,7 +146,7 @@ az webapp config connection-string set \
 
 Just make sure you correctly set `$appName` and `$resourceGroup` to match your environment and also that the variable `$ConnectionStrings__DefaultConnection` as also been set, as mentioned in section "Run sample locally". 
 
-An example of a full script that deploy the REST API is available here: `azure-deploy.sh`.
+An example of a full script that deploys the REST API is available here: `azure-deploy.sh`.
 
 ## Learn more
 

@@ -36,7 +36,9 @@ namespace AzureSamples.AzureSQL.Controllers
             string procedure = $"web.{verb}_{entityName}";
             _logger.LogDebug($"Executing {procedure}");
 
-            using(var conn = new SqlConnection(_config.GetConnectionString("DefaultConnection"))) {
+            var connectionStringName = verb.ToLower() != "get" ? "ReadWriteConnection" : "ReadOnlyConnection";
+            
+            using(var conn = new SqlConnection(_config.GetConnectionString(connectionStringName))) {
                 DynamicParameters parameters = new DynamicParameters();
 
                 if (payload.ValueKind != default(JsonValueKind))

@@ -37,7 +37,7 @@ namespace AzureSamples.AzureSQL.Controllers
             _logger.LogDebug($"Executing {procedure}");
 
             var connectionStringName = verb.ToLower() != "get" ? "ReadWriteConnection" : "ReadOnlyConnection";
-            
+
             using(var conn = new SqlConnection(_config.GetConnectionString(connectionStringName))) {
                 DynamicParameters parameters = new DynamicParameters();
 

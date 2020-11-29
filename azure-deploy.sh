@@ -57,7 +57,7 @@ az webapp create \
     -n $appName \
     --plan "windows-plan" \
     --deployment-source-url $gitSource \
-    --deployment-source-branch master
+    --deployment-source-branch perftest
 
 echo "Configuring Connection String...";
 az webapp config connection-string set \

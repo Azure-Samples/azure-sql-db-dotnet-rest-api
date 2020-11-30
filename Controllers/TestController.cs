@@ -39,8 +39,27 @@ namespace AzureSamples.AzureSQL.Controllers
         }
 
         [HttpGet]
-        [Route("Test2")]
-        public async Task<JsonElement> Test2()
+        [Route("Test2a")]
+        public async Task<JsonElement> Test2a()
+        {
+            var verb = "get";
+            var connectionStringName = verb.ToLower() != "get" ? "ReadWriteConnection" : "ReadOnlyConnection";
+
+            using(var conn = new SqlConnection(_config.GetConnectionString(connectionStringName))) {               
+                var qr = await conn.QuerySingleAsync(
+                    sql: "SELECT SYSDATETIME() AS [TimeStamp]", 
+                    commandType: CommandType.Text
+                );
+                
+                var json = JsonSerializer.Serialize(qr);
+
+                return JsonDocument.Parse(json).RootElement;
+            };
+        }
+
+        [HttpGet]
+        [Route("Test2b")]
+        public async Task<JsonElement> Test2b()
         {
             var verb = "get";
             var connectionStringName = verb.ToLower() != "get" ? "ReadWriteConnection" : "ReadOnlyConnection";

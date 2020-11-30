@@ -47,7 +47,7 @@ namespace AzureSamples.AzureSQL.Controllers
 
             using(var conn = new SqlConnection(_config.GetConnectionString(connectionStringName))) {               
                 var qr = await conn.QuerySingleAsync<string>(
-                    sql: "SELECT SYSDATETIME() AS Dummy FOR JSON AUTO", 
+                    sql: "SELECT SYSDATETIME() AS [TimeStamp] FOR JSON PATH", 
                     commandType: CommandType.Text
                 );
                 

@@ -60,7 +60,7 @@ If you need any help in executing the SQL script, you can find a Quickstart here
 
 ## Run sample locally
 
-Make sure you have [.NET Core 3.0](https://dotnet.microsoft.com/download) SDK installed on your machine. Clone this repo in a directory on your computer and then configure the connection string in `appsettings.json`.
+Make sure you have [.NET Core 6.0](https://dotnet.microsoft.com/download) SDK installed on your machine. Clone this repo in a directory on your computer and then configure the connection string in `appsettings.json`.
 
 If you don't want to save the connection string in the `appsettings.json` file for security reasons, you can just set it using an environment variable:
 

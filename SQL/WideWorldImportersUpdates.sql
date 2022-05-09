@@ -2,7 +2,7 @@
 	Create schema
 */
 IF SCHEMA_ID('web') IS NULL BEGIN	
-	EXECUTE('CREATE SCHEMA [web]');
+	EXECUTE('CREATE SCHEMA [web] AUTHORIZATION [dbo]');
 END
 GO
 

@@ -99,7 +99,7 @@ Now listening on: https://localhost:5001
 Using a REST Client (like [Insomnia](https://insomnia.rest/), [Postman](https://www.getpostman.com/) or curl), you can now call your API, for example:
 
 ```bash
-curl -k -X GET http://localhosts:5001/customer/123
+curl -k -X GET https://localhost:5001/customer/123
 ```
 
 and you'll get info on Customer 123:

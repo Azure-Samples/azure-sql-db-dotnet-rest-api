@@ -9,9 +9,8 @@ products:
 - azure
 - dotnet
 - aspnet
-- dotnet-core
 - aspnet-core
-- azure-api-apps
+- azure-app-service
 - vs-code
 - azure-sql-database
 description: "Creating a modern REST API with .NET Core and Azure SQL, using Dapper and Visual Studio Code"

@@ -8,7 +8,6 @@ languages:
 products:
 - azure
 - dotnet
-- aspnet
 - aspnet-core
 - azure-app-service
 - vs-code

@@ -125,11 +125,11 @@ Check out more samples to test all implemented verbs here:
 
 ## Deploy to Azure
 
-Now that your REST API solution is ready, it's time to deploy it on Azure so that anyone can take advantage of it. A detailed article on how you can that that is here:
+Now that your REST API solution is ready, it's time to deploy it on Azure so that anyone can take advantage of it. A detailed article on how you can do that is here:
 
 - [Create an ASP.NET Core app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore)
 
-The only thing you have do in addition to what explained in the above article is to add the connection string to the Azure Web App configuration. Using AZ CLI, for example:
+The only thing you have to do in addition to what is explained in the above article is to add the connection string to the Azure Web App configuration. Using AZ CLI, for example:
 
 ```bash
 appName="azure-sql-db-dotnet-rest-api"
@@ -142,13 +142,13 @@ az webapp config connection-string set \
     --connection-string-type=SQLAzure
 ```
 
-Just make sure you correctly set `$appName` and `$resourceGroup` to match your environment and also that the variable `$ConnectionStrings__DefaultConnection` as also been set, as mentioned in section "Run sample locally". 
+Just make sure you correctly set `$appName` and `$resourceGroup` to match your environment and also that the variable `$ConnectionStrings__DefaultConnection` has also been set, as mentioned in section "Run sample locally". 
 
 An example of a full script that deploys the REST API is available here: `azure-deploy.sh`.
 
 ## Learn more
 
-If you're new to .NET and want to learn more, there are a lot of tutorial available on the [Microsoft Learn](https://docs.microsoft.com/en-us/learn/browse/?products=dotnet) platform. You can start from here, for example:
+If you're new to .NET and want to learn more, there are a lot of tutorials available on the [Microsoft Learn(https://docs.microsoft.com/en-us/learn/browse/?products=dotnet) platform. You can start from here, for example:
 
 - https://docs.microsoft.com/en-us/learn/modules/build-web-api-net-core/?view=aspnetcore-3.1
 
